@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="/user" method="GET">
+    <label>
+        User Name
+        <input type="text" maxlength="20" name="user-name"/> 
+    </label>
+    
+</form>
+
+<form action="/password" method="POST">
+    <label>
+        Password
+        <input type="password" maxlength="20" name="password"/> 
+    </label>
+
+</form>
+<form action="/var_pass" method="POST">
+    <label>
+        Varify Password
+        <input type="password" maxlength="20" name="varify-password"/> 
+    </label>
+
+</form>
+
+<form action="/email" method="GET">
+    <label>
+        Email (optional)
+        <input type="text" minlength="3" maxlength="20" name="email-optional"> 
+    </label>
+
+</form>
+
+<input type="submit" value="submit"/>
+ {% endblock %}
