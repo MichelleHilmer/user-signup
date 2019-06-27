@@ -4,33 +4,25 @@
 <form action="/user" method="GET">
     <label>
         User Name
-        <input type="text" maxlength="20" name="user-name"/> 
+        <input id="text" type="text" name="user-name"/> 
     </label>
-    
+    <br>
+    <label> Password
+        <input id="password" type="password" name="password"/> 
+    </label>
+    <br>
+    <label> Varify Password
+        <input id="varify-password" type="password" name="varify-password"/>
+    </label>
+    <br>
+        <label>
+            Email (optional)
+            <input id="email-optional" type="text" name="email-optional"> 
+        </label>
+        <br>
+        <input type="submit" value="submit"/>
 </form>
 
-<form action="/password" method="POST">
-    <label>
-        Password
-        <input type="password" maxlength="20" name="password"/> 
-    </label>
 
-</form>
-<form action="/var_pass" method="POST">
-    <label>
-        Varify Password
-        <input type="password" maxlength="20" name="varify-password"/> 
-    </label>
 
-</form>
-
-<form action="/email" method="GET">
-    <label>
-        Email (optional)
-        <input type="text" minlength="3" maxlength="20" name="email-optional"> 
-    </label>
-
-</form>
-
-<input type="submit" value="submit"/>
  {% endblock %}
