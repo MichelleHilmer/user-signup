@@ -1,28 +1,50 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>User Signup</title>
+        
 
-{% block content %}
-<form action="/user" method="GET">
-    <label>
-        User Name
-        <input id="text" type="text" name="user-name"/> 
-    </label>
-    <br>
-    <label> Password
-        <input id="password" type="password" name="password"/> 
-    </label>
-    <br>
-    <label> Varify Password
-        <input id="varify-password" type="password" name="varify-password"/>
-    </label>
-    <br>
-        <label>
-            Email (optional)
-            <input id="email-optional" type="text" name="email-optional"> 
-        </label>
-        <br>
-        <input type="submit" value="submit"/>
-</form>
-
-
-
- {% endblock %}
+    </head>
+    <body>
+        <h1><strong>Signup</strong></h1>
+        <form action="/user_signup" method="POST">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <label>User Name</label>
+                        </td>
+                        <td>
+                            <input type="text" name="user_name" value='{{ user_name }}' />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="password">Password</label>
+                        </td>
+                        <td>
+                            <input name="password" type="password" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="password_verify">Verify Password</label>
+                        </td>
+                        <td>
+                            <input name="password_verify" type="password" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="email">Email (Optional)</label>
+                        </td>
+                        <td>
+                            <input name="email" type="text" value='{{ email }}' />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <input name="submit" type="submit" value="Submit" />
+        </form>
+    </body>
+</html>
