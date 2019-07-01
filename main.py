@@ -13,10 +13,12 @@ app.config['DEBUG'] = True
 @app.route('/welcome')
 def welcome():
     user_name = request.args.get['user_name']
-    return render_template('welcome.html', user_name = user_name)
+    template = jinja_env.get_template('user_name.html')
+
+    return template.render('welcome.html', user_name=user_name)
 
 
-@app.route('/user', methods=['POST'])
+@app.route('/user_signup', methods=['POST'])
 def user_info():
 
         user_name = request.form['user_name']
@@ -24,19 +26,24 @@ def user_info():
         varify_password = request.form['password_verify']
         email = request.form['email']
 
-        template = jinja_eva.get_template('welcome.html')
-        return template.render(user_name=user_name)
+        
 
 
-        #if ' ' in user_name:
-                #error = "Please enter valid user name."
-                #return redirect("/?error=" + error)
+        user_name_error = ''
+        password_error = ''
+        varify_password_error = ''
+        email_error = ''
 
-        #if user_name.length < 3 or user_name.length > 20:
-                #error = "Please make user_name between 3 and 20 characters."
-    
+        if len(user_name) <= 0:
+                user_name_error = 'Please enter a valid user name.'
+                user_name = ''
 
-        #return redirect('/welcome')
+        if not user_name_error:
+                template = jinja_env.get_template('welcome.html')
+                return template.render(user_name=user_name)
+        else:
+                template = jinja_env.get_template('user_name.html')
+                return template.render('user_name.html', user_name_error=user_name_error, user_name=user_name)
 
 @app.route ('/')
 def index():
