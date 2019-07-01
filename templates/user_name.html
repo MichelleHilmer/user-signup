@@ -5,6 +5,9 @@
         
 
     </head>
+    <style>
+        .error { color: red; }
+    </style>
     <body>
         <h1><strong>Signup</strong></h1>
         <form action="/user_signup" method="POST">
@@ -16,6 +19,7 @@
                         </td>
                         <td>
                             <input type="text" name="user_name" value='{{ user_name }}' />
+                            <span class='error'> {{user_name_error}} </span>
                         </td>
                     </tr>
                     <tr>
@@ -24,6 +28,7 @@
                         </td>
                         <td>
                             <input name="password" type="password" />
+                            <span class = 'error'> {{password_error}} </span>
                         </td>
                     </tr>
                     <tr>
@@ -32,6 +37,7 @@
                         </td>
                         <td>
                             <input name="password_verify" type="password" />
+                            <span class ='error'> {{verify_password_error}}</span>
                         </td>
                     </tr>
                     <tr>
@@ -40,6 +46,7 @@
                         </td>
                         <td>
                             <input name="email" type="text" value='{{ email }}' />
+                            <span class='error'>{{email_error}}</span>
                         </td>
                     </tr>
                 </tbody>
